@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Roadmap Planner</title>
+    <link rel="stylesheet" href="RM.css">
+</head>
+<body class="light-theme">
+    <div class="theme-toggle">
+        <button id="theme-btn" onclick="toggleTheme()">🌙 Dark Mode</button>
+    </div>
+
+    <div class="wrapper">
+        <header>
+            <h1>Learning Roadmap Planner</h1>
+            <p>Get a customized learning plan based on your topic</p>
+        </header>
+
+        <section class="input-section">
+            <input type="text" id="topicInput" placeholder="Enter a topic..." onkeyup="suggestTopics()">
+            <button id="generateBtn" onclick="generateRoadmap()">Generate Roadmap</button>
+            <div id="topicSuggestions" class="suggestions"></div>
+        </section>
+
+        <section id="roadmap-section" class="roadmap-section hidden">
+            <h2>Your Learning Roadmap</h2>
+            <div class="filters">
+                <label for="difficulty">Difficulty:</label>
+                <select id="difficulty" onchange="filterRoadmap()">
+                    <option value="all">All</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                </select>
+            </div>
+            <ul id="roadmap-container" class="roadmap-container"></ul>
+            <progress id="progressBar" value="0" max="100"></progress>
+        </section>
+
+        <section id="resources-section" class="resources-section hidden">
+            <h2>Suggested Resources</h2>
+            <div id="video-container"></div>
+        </section>
+
+        <button id="downloadBtn" class="hidden" onclick="downloadRoadmap()">Download Roadmap</button>
+    </div>
+
+    <script src="RM.js"></script>
+</body>
+</html>
